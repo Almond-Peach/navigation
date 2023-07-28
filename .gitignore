@@ -1,0 +1,7 @@
+# Android Studio
+.idea/*
+!.idea/codeStyles
+# Gradle
+local.properties
+.gradle
+build

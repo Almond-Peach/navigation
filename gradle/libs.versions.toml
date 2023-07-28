@@ -1,0 +1,38 @@
+[versions]
+android-gradle-plugin = "8.1.0"
+androidx-activity = "1.7.2"
+androidx-compose-bom = "2023.06.01"
+# @keep
+androidx-compose-compiler = "1.5.1"
+androidx-core-ktx = "1.10.1"
+androidx-core-splashscreen = "1.0.1"
+androidx-navigation = "2.6.0"
+arturbosch-detekt = "1.23.0"
+benmanes-versions = "0.47.0"
+jetbrains-kotlin = "1.9.0"
+littlerobots-version-catalog-update = "0.8.1"
+pinterest-ktlint = "0.50.0"
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "android-gradle-plugin" }
+arturbosch-detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "arturbosch-detekt" }
+benmanes-versions = { id = "com.github.ben-manes.versions", version.ref = "benmanes-versions" }
+jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "jetbrains-kotlin" }
+littlerobots-version-catalog-update = { id = "nl.littlerobots.version-catalog-update", version.ref = "littlerobots-version-catalog-update" }
+
+[libraries]
+androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity" }
+androidx-compose-bom = { module = "androidx.compose:compose-bom", version.ref = "androidx-compose-bom" }
+# @keep
+androidx-compose-compiler = { module = "androidx.compose.compiler:compiler", version.ref = "androidx-compose-compiler" }
+androidx-compose-material3 = { module = "androidx.compose.material3:material3" }
+androidx-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
+androidx-compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
+androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "androidx-core-ktx" }
+androidx-core-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "androidx-core-splashscreen" }
+androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "androidx-navigation" }
+# @keep
+arturbosch-detekt-gradle-plugin = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "arturbosch-detekt" }
+# @keep
+benmanes-versions-gradle-plugin = { module = "com.github.ben-manes:gradle-versions-plugin", version.ref = "benmanes-versions" }
+pinterest-ktlint = { module = "com.pinterest:ktlint", version.ref = "pinterest-ktlint" }

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <style name="Theme.Default" parent="android:Theme.Material.Light.NoActionBar">
+    <item name="android:statusBarColor">@color/dark_teal</item>
+  </style>
+
+  <style name="Theme.Default.SplashScreen" parent="Theme.SplashScreen">
+    <item name="windowSplashScreenBackground">@color/dark_teal</item>
+    <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
+    <item name="postSplashScreenTheme">@style/Theme.Default</item>
+  </style>
+</resources>
