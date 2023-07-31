@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.almondpeach.navigation.R
@@ -30,7 +31,10 @@ fun NavToHomeTabButton(
             .padding(horizontal = 20.dp)
             .fillMaxWidth(),
     ) {
-        Text(text = stringResource(R.string.nav_to_home_tab))
+        Text(
+            text = stringResource(R.string.nav_to_home_tab),
+            fontSize = 30.sp,
+        )
     }
 }
 
