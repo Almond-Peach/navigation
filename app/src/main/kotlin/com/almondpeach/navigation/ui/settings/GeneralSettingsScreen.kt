@@ -13,22 +13,25 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.almondpeach.navigation.R
 import com.almondpeach.navigation.ui.core.DevicePreviews
+import com.almondpeach.navigation.ui.navigation.Screen
 
 @Composable
 fun GeneralSettingsScreen(
-    navController: NavController,
+    navController: NavHostController,
+    nestedNavController: NavController,
 ) {
     Column(
         modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
+        verticalArrangement = Arrangement.spacedBy(20.dp, alignment = Alignment.CenterVertically),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Button(
             onClick = {
-                navController.navigate(SettingsScreen.AccountSettings.route) {
+                nestedNavController.navigate(SettingsScreen.AccountSettings.route) {
                     launchSingleTop = true
                 }
             },
@@ -38,11 +41,25 @@ fun GeneralSettingsScreen(
         ) {
             Text(text = stringResource(R.string.nav_to_account_settings))
         }
+        Button(
+            onClick = {
+                navController.navigate(Screen.Home.route) {
+                    popUpTo(Screen.Home.route) {
+                        inclusive = true
+                    }
+                }
+            },
+            modifier = Modifier
+                .padding(horizontal = 20.dp)
+                .fillMaxWidth(),
+        ) {
+            Text(text = stringResource(R.string.nav_to_home_tab))
+        }
     }
 }
 
 @DevicePreviews
 @Composable
 private fun GeneralSettingsScreenPreview() {
-    GeneralSettingsScreen(rememberNavController())
+    GeneralSettingsScreen(rememberNavController(), rememberNavController())
 }
