@@ -1,4 +1,4 @@
-package com.almondpeach.navigation.ui.settings
+package com.almondpeach.navigation.ui.settings.account
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.icons.Icons

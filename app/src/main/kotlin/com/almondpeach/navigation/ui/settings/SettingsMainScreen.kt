@@ -1,15 +1,17 @@
 package com.almondpeach.navigation.ui.settings
 
 import androidx.compose.runtime.Composable
-import androidx.navigation.NavHostController
+import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.almondpeach.navigation.ui.core.DevicePreviews
+import com.almondpeach.navigation.ui.settings.account.AccountSettingsScreen
+import com.almondpeach.navigation.ui.settings.general.GeneralSettingsScreen
 
 @Composable
 fun SettingsMainScreen(
-    navController: NavHostController,
+    navController: NavController,
 ) {
     val nestedNavController = rememberNavController()
 
