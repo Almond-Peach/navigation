@@ -52,5 +52,8 @@ fun GeneralSettingsScreen(
 @DevicePreviews
 @Composable
 private fun GeneralSettingsScreenPreview() {
-    GeneralSettingsScreen(rememberNavController(), rememberNavController())
+    GeneralSettingsScreen(
+        navController = rememberNavController(),
+        nestedNavController = rememberNavController(),
+    )
 }

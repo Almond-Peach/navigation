@@ -40,5 +40,7 @@ sealed class SettingsScreen(val route: String) {
 @DevicePreviews
 @Composable
 private fun SettingsMainScreenPreview() {
-    SettingsMainScreen(rememberNavController())
+    SettingsMainScreen(
+        navController = rememberNavController(),
+    )
 }
