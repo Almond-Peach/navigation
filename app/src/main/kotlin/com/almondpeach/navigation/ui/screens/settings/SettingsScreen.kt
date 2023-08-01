@@ -1,16 +1,16 @@
-package com.almondpeach.navigation.ui.settings
+package com.almondpeach.navigation.ui.screens.settings
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.almondpeach.navigation.ui.core.DevicePreviews
-import com.almondpeach.navigation.ui.settings.account.AccountSettingsScreen
-import com.almondpeach.navigation.ui.settings.general.GeneralSettingsScreen
+import com.almondpeach.navigation.ui.core.previews.DevicePreviews
+import com.almondpeach.navigation.ui.screens.settings.account.AccountSettingsScreen
+import com.almondpeach.navigation.ui.screens.settings.general.GeneralSettingsScreen
 
 @Composable
-fun SettingsMainScreen(
+fun SettingsScreen(
     navController: NavController,
 ) {
     val nestedNavController = rememberNavController()
@@ -40,7 +40,7 @@ sealed class SettingsScreen(val route: String) {
 @DevicePreviews
 @Composable
 private fun SettingsMainScreenPreview() {
-    SettingsMainScreen(
+    SettingsScreen(
         navController = rememberNavController(),
     )
 }

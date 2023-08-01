@@ -1,4 +1,4 @@
-package com.almondpeach.navigation.ui.core
+package com.almondpeach.navigation.ui.core.previews
 
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview

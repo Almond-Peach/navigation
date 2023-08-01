@@ -15,7 +15,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.rememberNavController
 import com.almondpeach.navigation.R
-import com.almondpeach.navigation.ui.core.DevicePreviews
+import com.almondpeach.navigation.ui.core.previews.DevicePreviews
 import com.almondpeach.navigation.ui.navigation.NavBar
 import com.almondpeach.navigation.ui.navigation.NavBarItem
 import com.almondpeach.navigation.ui.navigation.Navigation

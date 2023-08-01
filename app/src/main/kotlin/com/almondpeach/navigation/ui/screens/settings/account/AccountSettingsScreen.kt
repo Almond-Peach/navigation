@@ -1,4 +1,4 @@
-package com.almondpeach.navigation.ui.settings.account
+package com.almondpeach.navigation.ui.screens.settings.account
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.icons.Icons
@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.almondpeach.navigation.R
-import com.almondpeach.navigation.ui.core.DevicePreviews
+import com.almondpeach.navigation.ui.core.previews.DevicePreviews
 
 @Composable
 fun AccountSettingsScreen() {

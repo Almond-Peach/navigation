@@ -4,9 +4,9 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.almondpeach.navigation.ui.home.HomeScreen
-import com.almondpeach.navigation.ui.profile.ProfileScreen
-import com.almondpeach.navigation.ui.settings.SettingsMainScreen
+import com.almondpeach.navigation.ui.screens.home.HomeScreen
+import com.almondpeach.navigation.ui.screens.profile.ProfileScreen
+import com.almondpeach.navigation.ui.screens.settings.SettingsScreen
 
 @Composable
 fun Navigation(
@@ -25,7 +25,7 @@ fun Navigation(
         }
 
         composable(Screen.Settings.route) {
-            SettingsMainScreen(navController = navController)
+            SettingsScreen(navController = navController)
         }
     }
 }

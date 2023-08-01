@@ -1,4 +1,4 @@
-package com.almondpeach.navigation.ui.settings.general
+package com.almondpeach.navigation.ui.core.components
 
 import android.app.Activity
 import androidx.compose.foundation.clickable
@@ -12,7 +12,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.sp
 import com.almondpeach.navigation.R
-import com.almondpeach.navigation.ui.core.DevicePreviews
+import com.almondpeach.navigation.ui.core.previews.DevicePreviews
 
 @Composable
 fun ExitTheProgramDialogText(

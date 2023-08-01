@@ -1,4 +1,4 @@
-package com.almondpeach.navigation.ui.settings.general
+package com.almondpeach.navigation.ui.screens.settings.general
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -17,9 +17,11 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.almondpeach.navigation.R
-import com.almondpeach.navigation.ui.core.DevicePreviews
+import com.almondpeach.navigation.ui.core.components.ExitTheProgramDialogText
+import com.almondpeach.navigation.ui.core.components.NavToScreenButton
+import com.almondpeach.navigation.ui.core.previews.DevicePreviews
 import com.almondpeach.navigation.ui.navigation.Screen
-import com.almondpeach.navigation.ui.settings.SettingsScreen
+import com.almondpeach.navigation.ui.screens.settings.SettingsScreen
 
 @Composable
 fun GeneralSettingsScreen(

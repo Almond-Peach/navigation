@@ -1,4 +1,4 @@
-package com.almondpeach.navigation.ui.settings.general
+package com.almondpeach.navigation.ui.core.components
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -11,7 +11,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.NavOptionsBuilder
 import androidx.navigation.compose.rememberNavController
-import com.almondpeach.navigation.ui.core.DevicePreviews
+import com.almondpeach.navigation.ui.core.previews.DevicePreviews
 
 @Composable
 fun NavToScreenButton(
@@ -41,7 +41,7 @@ private fun NavToScreenButtonPreview() {
     NavToScreenButton(
         navController = rememberNavController(),
         route = "",
-        text = "Screen",
+        text = "",
         options = { },
     )
 }
