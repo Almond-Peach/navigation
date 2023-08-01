@@ -20,13 +20,13 @@ import com.almondpeach.navigation.R
 import com.almondpeach.navigation.ui.core.components.ExitTheProgramDialogText
 import com.almondpeach.navigation.ui.core.components.NavToScreenButton
 import com.almondpeach.navigation.ui.core.previews.DevicePreviews
-import com.almondpeach.navigation.ui.navigation.Screen
-import com.almondpeach.navigation.ui.screens.settings.SettingsScreen
+import com.almondpeach.navigation.ui.navigation.RootScreen
+import com.almondpeach.navigation.ui.navigation.SettingsScreen
 
 @Composable
 fun GeneralSettingsScreen(
-    navController: NavController,
-    nestedNavController: NavController,
+    rootNavController: NavController,
+    settingsNavController: NavController,
 ) {
     var openExitDialog by rememberSaveable { mutableStateOf(false) }
 
@@ -38,18 +38,18 @@ fun GeneralSettingsScreen(
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         NavToScreenButton(
-            navController = nestedNavController,
+            navController = settingsNavController,
             route = SettingsScreen.AccountSettings.route,
             text = stringResource(R.string.nav_to_account_settings),
         ) {
             launchSingleTop = true
         }
         NavToScreenButton(
-            navController = navController,
-            route = Screen.Home.route,
+            navController = rootNavController,
+            route = RootScreen.Home.route,
             text = stringResource(R.string.nav_to_home_tab),
         ) {
-            popUpTo(Screen.Home.route) {
+            popUpTo(RootScreen.Home.route) {
                 inclusive = true
             }
         }
@@ -64,7 +64,7 @@ fun GeneralSettingsScreen(
 @Composable
 private fun GeneralSettingsScreenPreview() {
     GeneralSettingsScreen(
-        navController = rememberNavController(),
-        nestedNavController = rememberNavController(),
+        rootNavController = rememberNavController(),
+        settingsNavController = rememberNavController(),
     )
 }

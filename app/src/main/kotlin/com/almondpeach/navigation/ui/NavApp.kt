@@ -18,12 +18,12 @@ import com.almondpeach.navigation.R
 import com.almondpeach.navigation.ui.core.previews.DevicePreviews
 import com.almondpeach.navigation.ui.navigation.NavBar
 import com.almondpeach.navigation.ui.navigation.NavBarItem
-import com.almondpeach.navigation.ui.navigation.Navigation
-import com.almondpeach.navigation.ui.navigation.Screen
+import com.almondpeach.navigation.ui.navigation.RootNavigation
+import com.almondpeach.navigation.ui.navigation.RootScreen
 
 @Composable
 fun NavApp() = MaterialTheme {
-    val navController = rememberNavController()
+    val rootNavController = rememberNavController()
 
     Scaffold(
         bottomBar = {
@@ -31,24 +31,24 @@ fun NavApp() = MaterialTheme {
                 items = listOf(
                     NavBarItem(
                         name = stringResource(R.string.dest_home),
-                        route = Screen.Home.route,
+                        route = RootScreen.Home.route,
                         icon = Icons.Filled.Home,
                     ),
                     NavBarItem(
                         name = stringResource(R.string.dest_profile),
-                        route = Screen.Profile.route,
+                        route = RootScreen.Profile.route,
                         icon = Icons.Filled.Person,
                     ),
                     NavBarItem(
                         name = stringResource(R.string.dest_settings),
-                        route = Screen.Settings.route,
+                        route = RootScreen.Settings.route,
                         icon = Icons.Filled.Settings,
                     ),
                 ),
-                navController = navController,
+                navController = rootNavController,
                 onItemClick = {
-                    navController.navigate(it.route) {
-                        popUpTo(navController.graph.findStartDestination().id) {
+                    rootNavController.navigate(it.route) {
+                        popUpTo(rootNavController.graph.findStartDestination().id) {
                             saveState = true
                         }
                         launchSingleTop = true
@@ -63,7 +63,7 @@ fun NavApp() = MaterialTheme {
                 .padding(it)
                 .fillMaxSize(),
         ) {
-            Navigation(navController = navController)
+            RootNavigation(rootNavController = rootNavController)
         }
     }
 }
