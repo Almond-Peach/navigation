@@ -6,10 +6,6 @@ import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -19,12 +15,13 @@ import com.almondpeach.navigation.R
 import com.almondpeach.navigation.ui.core.DevicePreviews
 
 @Composable
-fun ExitTheProgramText() {
-    var openDialog by remember { mutableStateOf(false) }
-
+fun ExitTheProgramDialogText(
+    openDialog: Boolean,
+    onOpenDialogChange: (Boolean) -> Unit,
+) {
     Text(
         text = stringResource(R.string.exit),
-        modifier = Modifier.clickable { openDialog = true },
+        modifier = Modifier.clickable { onOpenDialogChange(true) },
         fontSize = 40.sp,
         textDecoration = TextDecoration.Underline,
     )
@@ -34,7 +31,7 @@ fun ExitTheProgramText() {
     val activity = (LocalContext.current as? Activity)
 
     AlertDialog(
-        onDismissRequest = { openDialog = false },
+        onDismissRequest = { onOpenDialogChange(false) },
         title = { Text(text = stringResource(R.string.exit_dialog_title)) },
         text = { Text(text = stringResource(R.string.exit_dialog_text)) },
         confirmButton = {
@@ -43,7 +40,7 @@ fun ExitTheProgramText() {
             }
         },
         dismissButton = {
-            Button(onClick = { openDialog = false }) {
+            Button(onClick = { onOpenDialogChange(false) }) {
                 Text(text = stringResource(R.string.exit_dialog_dismiss_text))
             }
         },
@@ -52,6 +49,18 @@ fun ExitTheProgramText() {
 
 @DevicePreviews
 @Composable
-private fun ExitTheProgramTextPreview() {
-    ExitTheProgramText()
+private fun ExitTheProgramDialogTextHiddenDialogPreview() {
+    ExitTheProgramDialogText(
+        openDialog = false,
+        onOpenDialogChange = { },
+    )
+}
+
+@DevicePreviews
+@Composable
+private fun ExitTheProgramDialogTextShownDialogPreview() {
+    ExitTheProgramDialogText(
+        openDialog = true,
+        onOpenDialogChange = { },
+    )
 }
