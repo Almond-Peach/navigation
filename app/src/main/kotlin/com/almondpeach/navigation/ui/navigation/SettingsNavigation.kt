@@ -1,7 +1,6 @@
 package com.almondpeach.navigation.ui.navigation
 
 import androidx.compose.runtime.Composable
-import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -10,7 +9,7 @@ import com.almondpeach.navigation.ui.screens.settings.general.GeneralSettingsScr
 
 @Composable
 fun SettingsNavigation(
-    rootNavController: NavController,
+    onNavHome: () -> Unit,
 ) {
     val settingsNavController = rememberNavController()
 
@@ -20,8 +19,12 @@ fun SettingsNavigation(
     ) {
         composable(SettingsScreen.GeneralSettings.route) {
             GeneralSettingsScreen(
-                rootNavController = rootNavController,
-                settingsNavController = settingsNavController,
+                onNavHome = onNavHome,
+                onNavAccountSettings = {
+                    settingsNavController.navigate(SettingsScreen.AccountSettings.route) {
+                        launchSingleTop = true
+                    }
+                },
             )
         }
 

@@ -14,19 +14,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import com.almondpeach.navigation.R
 import com.almondpeach.navigation.ui.core.components.ExitTheProgramDialogText
-import com.almondpeach.navigation.ui.core.components.NavToScreenButton
+import com.almondpeach.navigation.ui.core.components.TextButton
 import com.almondpeach.navigation.ui.core.previews.DevicePreviews
-import com.almondpeach.navigation.ui.navigation.RootScreen
-import com.almondpeach.navigation.ui.navigation.SettingsScreen
 
 @Composable
 fun GeneralSettingsScreen(
-    rootNavController: NavController,
-    settingsNavController: NavController,
+    onNavHome: () -> Unit = { },
+    onNavAccountSettings: () -> Unit = { },
 ) {
     var openExitDialog by rememberSaveable { mutableStateOf(false) }
 
@@ -37,22 +33,8 @@ fun GeneralSettingsScreen(
         verticalArrangement = Arrangement.spacedBy(20.dp, alignment = Alignment.CenterVertically),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        NavToScreenButton(
-            navController = settingsNavController,
-            route = SettingsScreen.AccountSettings.route,
-            text = stringResource(R.string.nav_to_account_settings),
-        ) {
-            launchSingleTop = true
-        }
-        NavToScreenButton(
-            navController = rootNavController,
-            route = RootScreen.Home.route,
-            text = stringResource(R.string.nav_to_home_tab),
-        ) {
-            popUpTo(RootScreen.Home.route) {
-                inclusive = true
-            }
-        }
+        TextButton(text = stringResource(R.string.nav_to_account_settings)) { onNavAccountSettings() }
+        TextButton(text = stringResource(R.string.nav_to_home_tab)) { onNavHome() }
         ExitTheProgramDialogText(
             openDialog = openExitDialog,
             onOpenDialogChange = { openExitDialog = it },
@@ -63,8 +45,5 @@ fun GeneralSettingsScreen(
 @DevicePreviews
 @Composable
 private fun GeneralSettingsScreenPreview() {
-    GeneralSettingsScreen(
-        rootNavController = rememberNavController(),
-        settingsNavController = rememberNavController(),
-    )
+    GeneralSettingsScreen()
 }

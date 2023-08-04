@@ -8,22 +8,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
-import androidx.navigation.NavOptionsBuilder
-import androidx.navigation.compose.rememberNavController
 import com.almondpeach.navigation.ui.core.previews.DevicePreviews
 
 @Composable
-fun NavToScreenButton(
-    navController: NavController,
-    route: String,
+fun TextButton(
     text: String,
-    options: NavOptionsBuilder.() -> Unit,
+    onClick: () -> Unit = { },
 ) {
     Button(
-        onClick = {
-            navController.navigate(route, options)
-        },
+        onClick = onClick,
         modifier = Modifier
             .padding(horizontal = 20.dp)
             .fillMaxWidth(),
@@ -38,10 +31,5 @@ fun NavToScreenButton(
 @DevicePreviews
 @Composable
 private fun NavToScreenButtonPreview() {
-    NavToScreenButton(
-        navController = rememberNavController(),
-        route = "",
-        text = "",
-        options = { },
-    )
+    TextButton(text = "")
 }

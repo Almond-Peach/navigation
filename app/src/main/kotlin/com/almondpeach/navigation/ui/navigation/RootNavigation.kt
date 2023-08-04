@@ -24,7 +24,13 @@ fun RootNavigation(
         }
 
         composable(RootScreen.Settings.route) {
-            SettingsNavigation(rootNavController = rootNavController)
+            SettingsNavigation {
+                rootNavController.navigate(RootScreen.Home.route) {
+                    popUpTo(RootScreen.Home.route) {
+                        inclusive = true
+                    }
+                }
+            }
         }
     }
 }

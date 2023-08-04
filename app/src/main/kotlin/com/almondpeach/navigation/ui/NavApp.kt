@@ -47,12 +47,15 @@ fun NavApp() = MaterialTheme {
                 ),
                 navController = rootNavController,
                 onItemClick = {
-                    rootNavController.navigate(it.route) {
-                        popUpTo(rootNavController.graph.findStartDestination().id) {
-                            saveState = true
+                    val currentRoute = rootNavController.currentBackStackEntry?.destination?.route
+                    if (currentRoute != it.route) {
+                        rootNavController.navigate(it.route) {
+                            popUpTo(rootNavController.graph.findStartDestination().id) {
+                                saveState = true
+                            }
+                            launchSingleTop = true
+                            restoreState = true
                         }
-                        launchSingleTop = true
-                        restoreState = true
                     }
                 },
             )
